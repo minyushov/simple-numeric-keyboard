@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content">
+
+  <com.minyushov.support.widget.AppCompatXTextView
+    android:id="@+id/keyboard_1"
+    android:layout_width="0dp"
+    android:layout_height="56dp"
+    android:background="?selectableItemBackgroundBorderless"
+    android:drawableBottom="@drawable/keyboard_button_underline"
+    android:gravity="center"
+    android:text="1"
+    android:textColor="?android:textColorPrimary"
+    android:textSize="30sp"
+    app:drawableTint="?android:textColorPrimary"
+    app:layout_constraintBottom_toTopOf="@+id/keyboard_4"
+    app:layout_constraintEnd_toStartOf="@+id/keyboard_2"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <com.minyushov.support.widget.AppCompatXTextView
+    android:id="@+id/keyboard_2"
+    android:layout_width="0dp"
+    android:layout_height="56dp"
+    android:background="?selectableItemBackgroundBorderless"
+    android:drawableBottom="@drawable/keyboard_button_underline"
+    android:gravity="center"
+    android:text="2"
+    android:textColor="?android:textColorPrimary"
+    android:textSize="30sp"
+    app:drawableTint="?android:textColorPrimary"
+    app:layout_constraintBottom_toTopOf="@+id/keyboard_5"
+    app:layout_constraintEnd_toStartOf="@+id/keyboard_3"
+    app:layout_constraintStart_toEndOf="@+id/keyboard_1"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <com.minyushov.support.widget.AppCompatXTextView
+    android:id="@+id/keyboard_3"
+    android:layout_width="0dp"
+    android:layout_height="56dp"
+    android:background="?selectableItemBackgroundBorderless"
+    android:drawableBottom="@drawable/keyboard_button_underline"
+    android:gravity="center"
+    android:text="3"
+    android:textColor="?android:textColorPrimary"
+    android:textSize="30sp"
+    app:drawableTint="?android:textColorPrimary"
+    app:layout_constraintBottom_toTopOf="@+id/keyboard_6"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/keyboard_2"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <com.minyushov.support.widget.AppCompatXTextView
+    android:id="@+id/keyboard_4"
+    android:layout_width="0dp"
+    android:layout_height="56dp"
+    android:background="?selectableItemBackgroundBorderless"
+    android:drawableBottom="@drawable/keyboard_button_underline"
+    android:gravity="center"
+    android:text="4"
+    android:textColor="?android:textColorPrimary"
+    android:textSize="30sp"
+    app:drawableTint="?android:textColorPrimary"
+    app:layout_constraintBottom_toTopOf="@+id/keyboard_7"
+    app:layout_constraintEnd_toStartOf="@+id/keyboard_5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/keyboard_1" />
+
+  <com.minyushov.support.widget.AppCompatXTextView
+    android:id="@+id/keyboard_5"
+    android:layout_width="0dp"
+    android:layout_height="56dp"
+    android:background="?selectableItemBackgroundBorderless"
+    android:drawableBottom="@drawable/keyboard_button_underline"
+    android:gravity="center"
+    android:text="5"
+    android:textColor="?android:textColorPrimary"
+    android:textSize="30sp"
+    app:drawableTint="?android:textColorPrimary"
+    app:layout_constraintBottom_toTopOf="@+id/keyboard_8"
+    app:layout_constraintEnd_toStartOf="@+id/keyboard_6"
+    app:layout_constraintStart_toEndOf="@+id/keyboard_4"
+    app:layout_constraintTop_toBottomOf="@+id/keyboard_2" />
+
+  <com.minyushov.support.widget.AppCompatXTextView
+    android:id="@+id/keyboard_6"
+    android:layout_width="0dp"
+    android:layout_height="56dp"
+    android:background="?selectableItemBackgroundBorderless"
+    android:drawableBottom="@drawable/keyboard_button_underline"
+    android:gravity="center"
+    android:text="6"
+    android:textColor="?android:textColorPrimary"
+    android:textSize="30sp"
+    app:drawableTint="?android:textColorPrimary"
+    app:layout_constraintBottom_toTopOf="@+id/keyboard_9"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/keyboard_5"
+    app:layout_constraintTop_toBottomOf="@+id/keyboard_3" />
+
+  <com.minyushov.support.widget.AppCompatXTextView
+    android:id="@+id/keyboard_7"
+    android:layout_width="0dp"
+    android:layout_height="56dp"
+    android:background="?selectableItemBackgroundBorderless"
+    android:drawableBottom="@drawable/keyboard_button_underline"
+    android:gravity="center"
+    android:text="7"
+    android:textColor="?android:textColorPrimary"
+    android:textSize="30sp"
+    app:drawableTint="?android:textColorPrimary"
+    app:layout_constraintBottom_toTopOf="@+id/keyboard_custom"
+    app:layout_constraintEnd_toStartOf="@+id/keyboard_8"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/keyboard_4" />
+
+  <com.minyushov.support.widget.AppCompatXTextView
+    android:id="@+id/keyboard_8"
+    android:layout_width="0dp"
+    android:layout_height="56dp"
+    android:background="?selectableItemBackgroundBorderless"
+    android:drawableBottom="@drawable/keyboard_button_underline"
+    android:gravity="center"
+    android:text="8"
+    android:textColor="?android:textColorPrimary"
+    android:textSize="30sp"
+    app:drawableTint="?android:textColorPrimary"
+    app:layout_constraintBottom_toTopOf="@+id/keyboard_0"
+    app:layout_constraintEnd_toStartOf="@+id/keyboard_9"
+    app:layout_constraintStart_toEndOf="@+id/keyboard_7"
+    app:layout_constraintTop_toBottomOf="@+id/keyboard_5" />
+
+  <com.minyushov.support.widget.AppCompatXTextView
+    android:id="@+id/keyboard_9"
+    android:layout_width="0dp"
+    android:layout_height="56dp"
+    android:background="?selectableItemBackgroundBorderless"
+    android:drawableBottom="@drawable/keyboard_button_underline"
+    android:gravity="center"
+    android:text="9"
+    android:textColor="?android:textColorPrimary"
+    android:textSize="30sp"
+    app:drawableTint="?android:textColorPrimary"
+    app:layout_constraintBottom_toTopOf="@+id/keyboard_del"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/keyboard_8"
+    app:layout_constraintTop_toBottomOf="@+id/keyboard_6" />
+
+  <com.minyushov.support.widget.AppCompatXTextView
+    android:id="@+id/keyboard_custom"
+    android:layout_width="0dp"
+    android:layout_height="56dp"
+    android:background="?selectableItemBackgroundBorderless"
+    android:gravity="center"
+    android:textColor="?android:textColorPrimary"
+    android:textSize="30sp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@+id/keyboard_0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/keyboard_7" />
+
+  <com.minyushov.support.widget.AppCompatXTextView
+    android:id="@+id/keyboard_0"
+    android:layout_width="0dp"
+    android:layout_height="56dp"
+    android:background="?selectableItemBackgroundBorderless"
+    android:gravity="center"
+    android:text="0"
+    android:textColor="?android:textColorPrimary"
+    android:textSize="30sp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@+id/keyboard_9"
+    app:layout_constraintStart_toEndOf="@+id/keyboard_custom"
+    app:layout_constraintTop_toBottomOf="@+id/keyboard_8" />
+
+  <ImageView
+    android:id="@+id/keyboard_del"
+    android:layout_width="0dp"
+    android:layout_height="56dp"
+    android:background="?selectableItemBackgroundBorderless"
+    android:gravity="center"
+    android:scaleType="centerInside"
+    android:src="@drawable/icon_keyboard_delete_24"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/keyboard_0"
+    app:layout_constraintTop_toBottomOf="@+id/keyboard_9"
+    app:tint="?android:textColorPrimary"
+    tools:ignore="ContentDescription" />
+
+</android.support.constraint.ConstraintLayout>

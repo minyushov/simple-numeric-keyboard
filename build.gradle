@@ -1,0 +1,38 @@
+buildscript {
+  ext {
+    kotlinVersion = "1.2.41"
+    androidMinSdkVersion = 17
+    androidTargetSdkVersion = 27
+    androidCompileSdkVersion = 27
+    androidSupportLibraryVersion = "27.1.1"
+    constraintLayoutVersion = "1.1.0"
+  }
+
+  repositories {
+    google()
+    jcenter()
+    maven {
+      url "https://dl.bintray.com/minyushov/gradle"
+    }
+  }
+
+  dependencies {
+    classpath "com.android.tools.build:gradle:3.2.0-alpha16"
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    classpath "com.minyushov.gradle:bintray:1.0.5"
+  }
+}
+
+allprojects {
+  repositories {
+    google()
+    jcenter()
+    maven {
+      url "https://dl.bintray.com/minyushov/android"
+    }
+  }
+}
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}

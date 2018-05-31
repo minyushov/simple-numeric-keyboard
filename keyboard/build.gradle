@@ -1,0 +1,31 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.minyushov.bintray'
+
+android {
+  compileSdkVersion androidCompileSdkVersion
+  defaultConfig {
+    minSdkVersion androidMinSdkVersion
+    targetSdkVersion androidTargetSdkVersion
+  }
+  libraryVariants.all {
+    it.generateBuildConfig.enabled = false
+  }
+}
+
+dependencies {
+  implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+  implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
+  api "com.minyushov.android.support:appcompat-x:$androidSupportLibraryVersion-2"
+}
+
+bintrayUpload {
+  artifactId = "numeric-keyboard"
+  repo = "android"
+  groupId = "com.minyushov.android"
+  version = "1.0.0"
+  vcsUrl = "https://github.com/minyushov/simple-numeric-keyboard.git"
+  license = "Apache-2.0"
+  dryRun = false
+  docs = false
+}
