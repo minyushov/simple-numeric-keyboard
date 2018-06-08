@@ -5,6 +5,8 @@ import android.content.Context
 import android.support.constraint.ConstraintLayout
 import android.text.InputType
 import android.util.AttributeSet
+import android.util.TypedValue
+import android.view.ContextThemeWrapper
 import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
@@ -26,7 +28,14 @@ constructor(
     }
 
   init {
-    View.inflate(context, R.layout.v_keyboard, this)
+    checkAppCompatTheme(context)
+
+    TypedValue()
+      .apply { context.theme.resolveAttribute(R.attr.keyboardTheme, this, true) }
+      .resourceId
+      .let { ContextThemeWrapper(context, if (it != 0) it else R.style.KeyboardTheme) }
+      .also { View.inflate(it, R.layout.v_keyboard, this) }
+
     findViewById<View>(R.id.keyboard_0).setOnClickListener(this)
     findViewById<View>(R.id.keyboard_1).setOnClickListener(this)
     findViewById<View>(R.id.keyboard_2).setOnClickListener(this)
@@ -117,5 +126,18 @@ constructor(
           // Consume touch event
           true
         } ?: false
+  }
+
+  companion object {
+    private val APPCOMPAT_CHECK_ATTRS = intArrayOf(android.support.v7.appcompat.R.attr.colorPrimary)
+
+    private fun checkAppCompatTheme(context: Context) {
+      val array = context.obtainStyledAttributes(APPCOMPAT_CHECK_ATTRS)
+      val failed = !array.hasValue(0)
+      array.recycle()
+      if (failed) {
+        throw IllegalArgumentException("You need to use a Theme.AppCompat theme " + "(or descendant).")
+      }
+    }
   }
 }

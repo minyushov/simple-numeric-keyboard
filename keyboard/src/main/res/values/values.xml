@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <attr name="keyboardTheme" format="reference" />
+
+  <attr name="keyboardButtonTextColor" format="color" />
+  <attr name="keyboardButtonDrawable" format="reference" />
+  <attr name="keyboardButtonDrawableTint" format="color" />
+  <attr name="keyboardButtonBackground" format="color" />
+
+  <style name="KeyboardTheme">
+    <item name="keyboardButtonTextColor">?android:textColorPrimary</item>
+    <item name="keyboardButtonDrawable">@drawable/keyboard_button_underline</item>
+    <item name="keyboardButtonDrawableTint">?android:textColorPrimary</item>
+    <item name="keyboardButtonBackground">?selectableItemBackgroundBorderless</item>
+  </style>
+
+</resources>
