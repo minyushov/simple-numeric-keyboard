@@ -16,7 +16,7 @@ android {
 dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
   implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
-  api "com.minyushov.android.support:appcompat-x:$androidSupportLibraryVersion-2"
+  api "com.minyushov.android.support:appcompat-x:$androidSupportLibraryVersion-3"
 }
 
 bintrayUpload {
