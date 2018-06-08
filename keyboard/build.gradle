@@ -23,7 +23,7 @@ bintrayUpload {
   artifactId = "numeric-keyboard"
   repo = "android"
   groupId = "com.minyushov.android"
-  version = "1.0.0"
+  version = "1.0.1"
   vcsUrl = "https://github.com/minyushov/simple-numeric-keyboard.git"
   license = "Apache-2.0"
   dryRun = false
