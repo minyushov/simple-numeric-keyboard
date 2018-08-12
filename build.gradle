@@ -1,11 +1,11 @@
 buildscript {
   ext {
-    kotlinVersion = "1.2.41"
+    kotlinVersion = "1.2.51"
     androidMinSdkVersion = 17
-    androidTargetSdkVersion = 27
-    androidCompileSdkVersion = 27
-    androidSupportLibraryVersion = "27.1.1"
-    constraintLayoutVersion = "1.1.1"
+    androidTargetSdkVersion = 28
+    androidCompileSdkVersion = 28
+    appcompatVersion = "1.0.0-rc01"
+    constraintLayoutVersion = "1.1.2"
   }
 
   repositories {
@@ -17,7 +17,7 @@ buildscript {
   }
 
   dependencies {
-    classpath "com.android.tools.build:gradle:3.2.0-alpha17"
+    classpath "com.android.tools.build:gradle:3.2.0-beta05"
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     classpath "com.minyushov.gradle:bintray:1.1.0"
   }
@@ -27,9 +27,8 @@ allprojects {
   repositories {
     google()
     jcenter()
-    maven {
-      url "https://dl.bintray.com/minyushov/android"
-    }
+    maven { url "https://dl.bintray.com/minyushov/android" }
+    maven { url "https://dl.bintray.com/minyushov/androidx" }
   }
 }
 

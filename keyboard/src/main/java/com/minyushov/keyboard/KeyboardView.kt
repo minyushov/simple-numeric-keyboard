@@ -2,7 +2,6 @@ package com.minyushov.keyboard
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.support.constraint.ConstraintLayout
 import android.text.InputType
 import android.util.AttributeSet
 import android.util.TypedValue
@@ -11,6 +10,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 
 class KeyboardView
 @JvmOverloads
@@ -46,9 +46,9 @@ constructor(
     findViewById<View>(R.id.keyboard_7).setOnClickListener(this)
     findViewById<View>(R.id.keyboard_8).setOnClickListener(this)
     findViewById<View>(R.id.keyboard_9).setOnClickListener(this)
-    findViewById<View>(R.id.keyboard_del).also {
-      it.setOnClickListener(this)
-      it.setOnLongClickListener {
+    findViewById<View>(R.id.keyboard_del).also { view ->
+      view.setOnClickListener(this)
+      view.setOnLongClickListener {
         deleteAllCharacters()
         true
       }
@@ -129,7 +129,7 @@ constructor(
   }
 
   companion object {
-    private val APPCOMPAT_CHECK_ATTRS = intArrayOf(android.support.v7.appcompat.R.attr.colorPrimary)
+    private val APPCOMPAT_CHECK_ATTRS = intArrayOf(androidx.appcompat.R.attr.colorPrimary)
 
     private fun checkAppCompatTheme(context: Context) {
       val array = context.obtainStyledAttributes(APPCOMPAT_CHECK_ATTRS)

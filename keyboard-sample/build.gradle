@@ -15,6 +15,6 @@ android {
 dependencies {
   implementation project(":keyboard")
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-  implementation "com.android.support:appcompat-v7:$androidSupportLibraryVersion"
-  implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
+  implementation "androidx.appcompat:appcompat:$appcompatVersion"
+  implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
 }

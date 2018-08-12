@@ -1,8 +1,8 @@
 package com.minyushov.keyboard.sample
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import com.minyushov.keyboard.KeyboardView
 
 class MainActivity : AppCompatActivity() {
