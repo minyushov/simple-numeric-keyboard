@@ -48,7 +48,7 @@ constructor(
     findViewById<View>(R.id.keyboard_9).setOnClickListener(this)
     findViewById<View>(R.id.keyboard_del).also {
       it.setOnClickListener(this)
-      it.setOnLongClickListener {
+      it.setOnLongClickListener { _ ->
         deleteAllCharacters()
         true
       }
@@ -75,7 +75,7 @@ constructor(
         val end = it.selectionEnd
         if (start == end) {
           it.text.insert(end, char)
-        } else {
+        } else if (end > start) {
           it.text.replace(start, end, char)
         }
       }
