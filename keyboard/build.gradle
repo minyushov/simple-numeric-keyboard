@@ -16,14 +16,14 @@ android {
 dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
   implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
-  api "com.minyushov.android.support:appcompat-x:$androidSupportLibraryVersion-3"
+  api "com.minyushov.android.support:appcompat-x:$androidSupportLibraryVersion"
 }
 
 bintrayUpload {
   artifactId = "numeric-keyboard"
   repo = "android"
   groupId = "com.minyushov.android"
-  version = "1.0.2"
+  version = "1.0.3"
   vcsUrl = "https://github.com/minyushov/simple-numeric-keyboard.git"
   license = "Apache-2.0"
   dryRun = false
