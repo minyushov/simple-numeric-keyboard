@@ -8,7 +8,7 @@
     android:icon="@mipmap/app_icon"
     android:label="@string/app_name"
     android:supportsRtl="false"
-    android:theme="@style/AppTheme"
+    android:theme="@style/Theme.MaterialComponents"
     tools:ignore="GoogleAppIndexingWarning">
 
     <activity android:name=".MainActivity">
@@ -17,6 +17,9 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+
+    <activity
+      android:name=".KeyboardActivity" />
 
   </application>
 

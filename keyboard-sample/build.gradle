@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
   compileSdkVersion androidCompileSdkVersion
@@ -12,9 +13,15 @@ android {
   }
 }
 
+androidExtensions {
+  experimental = true
+}
+
 dependencies {
   implementation project(":keyboard")
-  implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-  implementation "androidx.appcompat:appcompat:$appcompatVersion"
-  implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+
+  implementation kotlinLib
+  implementation constraintLayout
+  implementation appcompat
+  implementation material
 }

@@ -1,16 +1,28 @@
 package com.minyushov.keyboard.sample
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import com.minyushov.keyboard.KeyboardView
+import kotlinx.android.synthetic.main.activity_main.openDark
+import kotlinx.android.synthetic.main.activity_main.openLight
 
 class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.a_main)
+    setContentView(R.layout.activity_main)
 
-    findViewById<EditText>(R.id.main_edit_text)
-      .also { findViewById<KeyboardView>(R.id.main_keyboard).editText = it }
+    openDark.setOnClickListener {
+      startActivity(
+        Intent(this, KeyboardActivity::class.java)
+          .putExtra(KeyboardActivity.EXTRA_THEME, R.style.Theme_MaterialComponents)
+      )
+    }
+
+    openLight.setOnClickListener {
+      startActivity(
+        Intent(this, KeyboardActivity::class.java)
+          .putExtra(KeyboardActivity.EXTRA_THEME, R.style.Theme_MaterialComponents_Light)
+      )
+    }
   }
 }

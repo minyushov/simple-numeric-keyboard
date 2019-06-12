@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.minyushov.bintray'
 
 android {
@@ -7,23 +8,30 @@ android {
   defaultConfig {
     minSdkVersion androidMinSdkVersion
     targetSdkVersion androidTargetSdkVersion
+    vectorDrawables.useSupportLibrary = true
   }
   libraryVariants.all {
-    it.generateBuildConfig.enabled = false
+    it.generateBuildConfigProvider.configure {
+      it.enabled = false
+    }
   }
 }
 
+androidExtensions {
+  experimental = true
+}
+
 dependencies {
-  implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-  implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
-  implementation "msv.androidx:appcompat:$appcompatVersion"
+  implementation kotlinLib
+  implementation appcompat
+  implementation constraintLayout
 }
 
 bintrayUpload {
   artifactId = "numeric-keyboard"
   repo = "android"
   groupId = "com.minyushov.android"
-  version = "1.1.0-rc02"
+  version = "1.1.0"
   vcsUrl = "https://github.com/minyushov/simple-numeric-keyboard.git"
   license = "Apache-2.0"
   dryRun = false

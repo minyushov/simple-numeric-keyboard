@@ -8,152 +8,167 @@
   tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout"
   tools:theme="@style/KeyboardTheme">
 
-  <msv.androidx.appcompat.widget.AppCompatXTextView
-    android:id="@+id/keyboard_1"
+  <ImageView
+    android:id="@+id/keyboardButtonBackspace"
     android:layout_width="0dp"
     android:layout_height="56dp"
     android:background="?keyboardButtonBackground"
-    android:drawableBottom="?keyboardButtonDrawable"
+    android:gravity="center"
+    android:scaleType="centerInside"
+    android:src="@drawable/icon_backspace_24"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/keyboardButton0"
+    app:layout_constraintTop_toBottomOf="@+id/keyboardButton9"
+    app:tint="?android:textColorPrimary"
+    tools:ignore="ContentDescription" />
+
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/keyboardButton1"
+    android:layout_width="0dp"
+    android:layout_height="56dp"
+    android:background="?keyboardButtonBackground"
     android:gravity="center"
     android:text="1"
     android:textColor="?keyboardButtonTextColor"
     android:textSize="30sp"
+    app:drawableBottomCompat="?keyboardButtonDrawable"
     app:drawableTint="?keyboardButtonDrawableTint"
-    app:layout_constraintBottom_toTopOf="@+id/keyboard_4"
-    app:layout_constraintEnd_toStartOf="@+id/keyboard_2"
+    app:layout_constraintBottom_toTopOf="@+id/keyboardButton4"
+    app:layout_constraintEnd_toStartOf="@+id/keyboardButton2"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
 
-  <msv.androidx.appcompat.widget.AppCompatXTextView
-    android:id="@+id/keyboard_2"
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/keyboardButton2"
     android:layout_width="0dp"
     android:layout_height="56dp"
     android:background="?keyboardButtonBackground"
-    android:drawableBottom="?keyboardButtonDrawable"
     android:gravity="center"
     android:text="2"
     android:textColor="?keyboardButtonTextColor"
     android:textSize="30sp"
+    app:drawableBottomCompat="?keyboardButtonDrawable"
     app:drawableTint="?keyboardButtonDrawableTint"
-    app:layout_constraintBottom_toTopOf="@+id/keyboard_5"
-    app:layout_constraintEnd_toStartOf="@+id/keyboard_3"
-    app:layout_constraintStart_toEndOf="@+id/keyboard_1"
+    app:layout_constraintBottom_toTopOf="@+id/keyboardButton5"
+    app:layout_constraintEnd_toStartOf="@+id/keyboardButton3"
+    app:layout_constraintStart_toEndOf="@+id/keyboardButton1"
     app:layout_constraintTop_toTopOf="parent" />
 
-  <msv.androidx.appcompat.widget.AppCompatXTextView
-    android:id="@+id/keyboard_3"
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/keyboardButton3"
     android:layout_width="0dp"
     android:layout_height="56dp"
     android:background="?keyboardButtonBackground"
-    android:drawableBottom="?keyboardButtonDrawable"
     android:gravity="center"
     android:text="3"
     android:textColor="?keyboardButtonTextColor"
     android:textSize="30sp"
+    app:drawableBottomCompat="?keyboardButtonDrawable"
     app:drawableTint="?keyboardButtonDrawableTint"
-    app:layout_constraintBottom_toTopOf="@+id/keyboard_6"
+    app:layout_constraintBottom_toTopOf="@+id/keyboardButton6"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toEndOf="@+id/keyboard_2"
+    app:layout_constraintStart_toEndOf="@+id/keyboardButton2"
     app:layout_constraintTop_toTopOf="parent" />
 
-  <msv.androidx.appcompat.widget.AppCompatXTextView
-    android:id="@+id/keyboard_4"
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/keyboardButton4"
     android:layout_width="0dp"
     android:layout_height="56dp"
     android:background="?keyboardButtonBackground"
-    android:drawableBottom="?keyboardButtonDrawable"
     android:gravity="center"
     android:text="4"
     android:textColor="?keyboardButtonTextColor"
     android:textSize="30sp"
+    app:drawableBottomCompat="?keyboardButtonDrawable"
     app:drawableTint="?keyboardButtonDrawableTint"
-    app:layout_constraintBottom_toTopOf="@+id/keyboard_7"
-    app:layout_constraintEnd_toStartOf="@+id/keyboard_5"
+    app:layout_constraintBottom_toTopOf="@+id/keyboardButton7"
+    app:layout_constraintEnd_toStartOf="@+id/keyboardButton5"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/keyboard_1" />
+    app:layout_constraintTop_toBottomOf="@+id/keyboardButton1" />
 
-  <msv.androidx.appcompat.widget.AppCompatXTextView
-    android:id="@+id/keyboard_5"
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/keyboardButton5"
     android:layout_width="0dp"
     android:layout_height="56dp"
     android:background="?keyboardButtonBackground"
-    android:drawableBottom="?keyboardButtonDrawable"
     android:gravity="center"
     android:text="5"
     android:textColor="?keyboardButtonTextColor"
     android:textSize="30sp"
+    app:drawableBottomCompat="?keyboardButtonDrawable"
     app:drawableTint="?keyboardButtonDrawableTint"
-    app:layout_constraintBottom_toTopOf="@+id/keyboard_8"
-    app:layout_constraintEnd_toStartOf="@+id/keyboard_6"
-    app:layout_constraintStart_toEndOf="@+id/keyboard_4"
-    app:layout_constraintTop_toBottomOf="@+id/keyboard_2" />
+    app:layout_constraintBottom_toTopOf="@+id/keyboardButton8"
+    app:layout_constraintEnd_toStartOf="@+id/keyboardButton6"
+    app:layout_constraintStart_toEndOf="@+id/keyboardButton4"
+    app:layout_constraintTop_toBottomOf="@+id/keyboardButton2" />
 
-  <msv.androidx.appcompat.widget.AppCompatXTextView
-    android:id="@+id/keyboard_6"
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/keyboardButton6"
     android:layout_width="0dp"
     android:layout_height="56dp"
     android:background="?keyboardButtonBackground"
-    android:drawableBottom="?keyboardButtonDrawable"
     android:gravity="center"
     android:text="6"
     android:textColor="?keyboardButtonTextColor"
     android:textSize="30sp"
+    app:drawableBottomCompat="?keyboardButtonDrawable"
     app:drawableTint="?keyboardButtonDrawableTint"
-    app:layout_constraintBottom_toTopOf="@+id/keyboard_9"
+    app:layout_constraintBottom_toTopOf="@+id/keyboardButton9"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toEndOf="@+id/keyboard_5"
-    app:layout_constraintTop_toBottomOf="@+id/keyboard_3" />
+    app:layout_constraintStart_toEndOf="@+id/keyboardButton5"
+    app:layout_constraintTop_toBottomOf="@+id/keyboardButton3" />
 
-  <msv.androidx.appcompat.widget.AppCompatXTextView
-    android:id="@+id/keyboard_7"
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/keyboardButton7"
     android:layout_width="0dp"
     android:layout_height="56dp"
     android:background="?keyboardButtonBackground"
-    android:drawableBottom="?keyboardButtonDrawable"
     android:gravity="center"
     android:text="7"
     android:textColor="?keyboardButtonTextColor"
     android:textSize="30sp"
+    app:drawableBottomCompat="?keyboardButtonDrawable"
     app:drawableTint="?keyboardButtonDrawableTint"
-    app:layout_constraintBottom_toTopOf="@+id/keyboard_custom"
-    app:layout_constraintEnd_toStartOf="@+id/keyboard_8"
+    app:layout_constraintBottom_toTopOf="@+id/keyboardButtonCustom"
+    app:layout_constraintEnd_toStartOf="@+id/keyboardButton8"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/keyboard_4" />
+    app:layout_constraintTop_toBottomOf="@+id/keyboardButton4" />
 
-  <msv.androidx.appcompat.widget.AppCompatXTextView
-    android:id="@+id/keyboard_8"
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/keyboardButton8"
     android:layout_width="0dp"
     android:layout_height="56dp"
     android:background="?keyboardButtonBackground"
-    android:drawableBottom="?keyboardButtonDrawable"
     android:gravity="center"
     android:text="8"
     android:textColor="?keyboardButtonTextColor"
     android:textSize="30sp"
+    app:drawableBottomCompat="?keyboardButtonDrawable"
     app:drawableTint="?keyboardButtonDrawableTint"
-    app:layout_constraintBottom_toTopOf="@+id/keyboard_0"
-    app:layout_constraintEnd_toStartOf="@+id/keyboard_9"
-    app:layout_constraintStart_toEndOf="@+id/keyboard_7"
-    app:layout_constraintTop_toBottomOf="@+id/keyboard_5" />
+    app:layout_constraintBottom_toTopOf="@+id/keyboardButton0"
+    app:layout_constraintEnd_toStartOf="@+id/keyboardButton9"
+    app:layout_constraintStart_toEndOf="@+id/keyboardButton7"
+    app:layout_constraintTop_toBottomOf="@+id/keyboardButton5" />
 
-  <msv.androidx.appcompat.widget.AppCompatXTextView
-    android:id="@+id/keyboard_9"
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/keyboardButton9"
     android:layout_width="0dp"
     android:layout_height="56dp"
     android:background="?keyboardButtonBackground"
-    android:drawableBottom="?keyboardButtonDrawable"
     android:gravity="center"
     android:text="9"
     android:textColor="?keyboardButtonTextColor"
     android:textSize="30sp"
+    app:drawableBottomCompat="?keyboardButtonDrawable"
     app:drawableTint="?keyboardButtonDrawableTint"
-    app:layout_constraintBottom_toTopOf="@+id/keyboard_del"
+    app:layout_constraintBottom_toTopOf="@+id/keyboardButtonBackspace"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toEndOf="@+id/keyboard_8"
-    app:layout_constraintTop_toBottomOf="@+id/keyboard_6" />
+    app:layout_constraintStart_toEndOf="@+id/keyboardButton8"
+    app:layout_constraintTop_toBottomOf="@+id/keyboardButton6" />
 
-  <msv.androidx.appcompat.widget.AppCompatXTextView
-    android:id="@+id/keyboard_custom"
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/keyboardButtonCustom"
     android:layout_width="0dp"
     android:layout_height="56dp"
     android:background="?keyboardButtonBackground"
@@ -161,12 +176,12 @@
     android:textColor="?keyboardButtonTextColor"
     android:textSize="30sp"
     app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toStartOf="@+id/keyboard_0"
+    app:layout_constraintEnd_toStartOf="@+id/keyboardButton0"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/keyboard_7" />
+    app:layout_constraintTop_toBottomOf="@+id/keyboardButton7" />
 
-  <msv.androidx.appcompat.widget.AppCompatXTextView
-    android:id="@+id/keyboard_0"
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/keyboardButton0"
     android:layout_width="0dp"
     android:layout_height="56dp"
     android:background="?keyboardButtonBackground"
@@ -175,23 +190,8 @@
     android:textColor="?keyboardButtonTextColor"
     android:textSize="30sp"
     app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toStartOf="@+id/keyboard_9"
-    app:layout_constraintStart_toEndOf="@+id/keyboard_custom"
-    app:layout_constraintTop_toBottomOf="@+id/keyboard_8" />
-
-  <ImageView
-    android:id="@+id/keyboard_del"
-    android:layout_width="0dp"
-    android:layout_height="56dp"
-    android:background="?keyboardButtonBackground"
-    android:gravity="center"
-    android:scaleType="centerInside"
-    android:src="@drawable/icon_keyboard_delete_24"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toEndOf="@+id/keyboard_0"
-    app:layout_constraintTop_toBottomOf="@+id/keyboard_9"
-    app:tint="?android:textColorPrimary"
-    tools:ignore="ContentDescription" />
+    app:layout_constraintEnd_toStartOf="@+id/keyboardButton9"
+    app:layout_constraintStart_toEndOf="@+id/keyboardButtonCustom"
+    app:layout_constraintTop_toBottomOf="@+id/keyboardButton8" />
 
 </merge>

@@ -11,6 +11,17 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton0
+import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton1
+import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton2
+import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton3
+import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton4
+import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton5
+import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton6
+import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton7
+import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton8
+import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton9
+import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButtonBackspace
 
 class KeyboardView
 @JvmOverloads
@@ -36,19 +47,19 @@ constructor(
       .let { ContextThemeWrapper(context, if (it != 0) it else R.style.KeyboardTheme) }
       .also { View.inflate(it, R.layout.v_keyboard, this) }
 
-    findViewById<View>(R.id.keyboard_0).setOnClickListener(this)
-    findViewById<View>(R.id.keyboard_1).setOnClickListener(this)
-    findViewById<View>(R.id.keyboard_2).setOnClickListener(this)
-    findViewById<View>(R.id.keyboard_3).setOnClickListener(this)
-    findViewById<View>(R.id.keyboard_4).setOnClickListener(this)
-    findViewById<View>(R.id.keyboard_5).setOnClickListener(this)
-    findViewById<View>(R.id.keyboard_6).setOnClickListener(this)
-    findViewById<View>(R.id.keyboard_7).setOnClickListener(this)
-    findViewById<View>(R.id.keyboard_8).setOnClickListener(this)
-    findViewById<View>(R.id.keyboard_9).setOnClickListener(this)
-    findViewById<View>(R.id.keyboard_del).also { view ->
-      view.setOnClickListener(this)
-      view.setOnLongClickListener {
+    keyboardButton0.setOnClickListener(this)
+    keyboardButton1.setOnClickListener(this)
+    keyboardButton2.setOnClickListener(this)
+    keyboardButton3.setOnClickListener(this)
+    keyboardButton4.setOnClickListener(this)
+    keyboardButton5.setOnClickListener(this)
+    keyboardButton6.setOnClickListener(this)
+    keyboardButton7.setOnClickListener(this)
+    keyboardButton8.setOnClickListener(this)
+    keyboardButton9.setOnClickListener(this)
+    keyboardButtonBackspace.apply {
+      setOnClickListener(this@KeyboardView)
+      setOnLongClickListener {
         deleteAllCharacters()
         true
       }
@@ -57,7 +68,7 @@ constructor(
 
   override fun onClick(view: View) {
     when (view.id) {
-      R.id.keyboard_del -> deleteLastCharacter()
+      R.id.keyboardButtonBackspace -> deleteLastCharacter()
       else -> {
         val textView = view as? TextView
         if (textView != null) {
@@ -67,65 +78,63 @@ constructor(
     }
   }
 
-  private fun appendCharacter(char: String) =
-    editText
-      ?.takeIf { char.isNotEmpty() }
-      ?.also {
-        val start = it.selectionStart
-        val end = it.selectionEnd
-        if (start == end) {
-          it.text.insert(end, char)
-        } else {
-          it.text.replace(start, end, char)
-        }
+  private fun appendCharacter(char: String) {
+    val editText = this.editText ?: return
+    if (char.isNotEmpty()) {
+      val start = editText.selectionStart
+      val end = editText.selectionEnd
+      if (start == end) {
+        editText.text.insert(end, char)
+      } else if (end > start) {
+        editText.text.replace(start, end, char)
+      }
+    }
+  }
+
+  private fun deleteLastCharacter() {
+    val editText = this.editText ?: return
+    if (editText.text.isEmpty()) {
+      editText.setText("")
+    } else {
+      var selectionStart: Int
+      val selectionEnd: Int
+
+      if (editText.isTextSelectable) {
+        selectionStart = editText.selectionStart
+        selectionEnd = editText.selectionEnd
+      } else {
+        selectionEnd = editText.text.length
+        selectionStart = selectionEnd
       }
 
-  private fun deleteLastCharacter() =
-    editText
-      ?.also {
-        if (it.text.isEmpty()) {
-          it.setText("")
-        } else {
-          var selectionStart: Int
-          val selectionEnd: Int
-
-          if (it.isTextSelectable) {
-            selectionStart = it.selectionStart
-            selectionEnd = it.selectionEnd
-          } else {
-            selectionEnd = it.text.length
-            selectionStart = selectionEnd
-          }
-
-          if (selectionStart == selectionEnd) {
-            selectionStart = Math.max(0, selectionStart - 1)
-          }
-
-          it.text.delete(selectionStart, selectionEnd)
-        }
+      if (selectionStart == selectionEnd) {
+        selectionStart = Math.max(0, selectionStart - 1)
       }
 
-  private fun deleteAllCharacters() =
-    editText
-      ?.also { it.text.clear() }
+      editText.text.delete(selectionStart, selectionEnd)
+    }
+  }
 
-  private class NoSystemKeyboardTouchListener : View.OnTouchListener {
+  private fun deleteAllCharacters() {
+    val editText = this.editText ?: return
+    editText.text.clear()
+  }
+
+  private class NoSystemKeyboardTouchListener : OnTouchListener {
     @SuppressLint("ClickableViewAccessibility")
-    override fun onTouch(view: View, event: MotionEvent) =
-      view
-        .let { view as? EditText }
-        ?.run {
-          // Backup the input type
-          val currentInputType = inputType
-          // Disable standard keyboard
-          inputType = InputType.TYPE_NULL
-          // Call native handler
-          onTouchEvent(event)
-          // Restore input type
-          inputType = currentInputType
-          // Consume touch event
-          true
-        } ?: false
+    override fun onTouch(view: View, event: MotionEvent): Boolean {
+      val editText = view as? EditText ?: return false
+      // Backup the input type
+      val currentInputType = editText.inputType
+      // Disable standard keyboard
+      editText.inputType = InputType.TYPE_NULL
+      // Call native handler
+      editText.onTouchEvent(event)
+      // Restore input type
+      editText.inputType = currentInputType
+      // Consume touch event
+      return true
+    }
   }
 
   companion object {
