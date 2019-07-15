@@ -35,7 +35,7 @@ constructor(
     @SuppressLint("ClickableViewAccessibility")
     set(value) {
       field = value
-      field?.setOnTouchListener(NoSystemKeyboardTouchListener())
+      field?.showSoftInputOnFocus = false
     }
 
   init {
@@ -111,30 +111,15 @@ constructor(
         selectionStart = Math.max(0, selectionStart - 1)
       }
 
-      editText.text.delete(selectionStart, selectionEnd)
+      if (selectionEnd >= selectionStart) {
+        editText.text.delete(selectionStart, selectionEnd)
+      }
     }
   }
 
   private fun deleteAllCharacters() {
     val editText = this.editText ?: return
     editText.text.clear()
-  }
-
-  private class NoSystemKeyboardTouchListener : OnTouchListener {
-    @SuppressLint("ClickableViewAccessibility")
-    override fun onTouch(view: View, event: MotionEvent): Boolean {
-      val editText = view as? EditText ?: return false
-      // Backup the input type
-      val currentInputType = editText.inputType
-      // Disable standard keyboard
-      editText.inputType = InputType.TYPE_NULL
-      // Call native handler
-      editText.onTouchEvent(event)
-      // Restore input type
-      editText.inputType = currentInputType
-      // Consume touch event
-      return true
-    }
   }
 
   companion object {
