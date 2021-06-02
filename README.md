@@ -1,5 +1,5 @@
 ## Simple Numeric Keyboard View
-[![Download](https://api.bintray.com/packages/minyushov/android/numeric-keyboard/images/download.svg)](https://bintray.com/minyushov/android/numeric-keyboard/_latestVersion)
+![Maven Central](https://img.shields.io/maven-central/v/io.github.minyushov/numeric-keyboard)
 
 <p>
   <img src="keyboard-sample/screenshots/keyboard-light.png" width="300" vspace="20" hspace="5">
@@ -8,6 +8,6 @@
 
 ```groovy
 dependencies {
-  implementation 'com.minyushov.android:numeric-keyboard:version'
+  implementation 'io.github.minyushov:numeric-keyboard:$version'
 }
 ```

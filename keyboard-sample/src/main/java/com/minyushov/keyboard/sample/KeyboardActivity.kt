@@ -1,18 +1,19 @@
 package com.minyushov.keyboard.sample
 
 import android.os.Bundle
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import com.minyushov.keyboard.KeyboardView
-import kotlinx.android.synthetic.main.activity_keyboard.keyboardInputView
-import kotlinx.android.synthetic.main.activity_keyboard.keyboardView
+import com.minyushov.keyboard.sample.databinding.KeyboardActivityBinding
 
 class KeyboardActivity : AppCompatActivity() {
+  private lateinit var binding: KeyboardActivityBinding
+
   override fun onCreate(savedInstanceState: Bundle?) {
     setTheme(intent.getIntExtra(EXTRA_THEME, R.style.Theme_MaterialComponents))
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_keyboard)
-    keyboardView.editText = keyboardInputView
+
+    binding = KeyboardActivityBinding.inflate(layoutInflater)
+    setContentView(binding.root)
+    binding.keyboardView.editText = binding.keyboardInputView
   }
 
   companion object {

@@ -2,26 +2,16 @@ package com.minyushov.keyboard
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.text.InputType
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.ContextThemeWrapper
-import android.view.MotionEvent
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton0
-import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton1
-import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton2
-import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton3
-import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton4
-import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton5
-import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton6
-import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton7
-import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton8
-import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButton9
-import kotlinx.android.synthetic.main.v_keyboard.view.keyboardButtonBackspace
+import com.minyushov.keyboard.databinding.KeyboardViewBinding
+import kotlin.math.max
 
 class KeyboardView
 @JvmOverloads
@@ -30,6 +20,8 @@ constructor(
   attrs: AttributeSet? = null,
   defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr), View.OnClickListener {
+
+  private val binding: KeyboardViewBinding
 
   var editText: EditText? = null
     @SuppressLint("ClickableViewAccessibility")
@@ -41,23 +33,24 @@ constructor(
   init {
     checkAppCompatTheme(context)
 
-    TypedValue()
+    val theme = TypedValue()
       .apply { context.theme.resolveAttribute(R.attr.keyboardTheme, this, true) }
       .resourceId
-      .let { ContextThemeWrapper(context, if (it != 0) it else R.style.KeyboardTheme) }
-      .also { View.inflate(it, R.layout.v_keyboard, this) }
 
-    keyboardButton0.setOnClickListener(this)
-    keyboardButton1.setOnClickListener(this)
-    keyboardButton2.setOnClickListener(this)
-    keyboardButton3.setOnClickListener(this)
-    keyboardButton4.setOnClickListener(this)
-    keyboardButton5.setOnClickListener(this)
-    keyboardButton6.setOnClickListener(this)
-    keyboardButton7.setOnClickListener(this)
-    keyboardButton8.setOnClickListener(this)
-    keyboardButton9.setOnClickListener(this)
-    keyboardButtonBackspace.apply {
+    val themedContext = ContextThemeWrapper(context, if (theme != 0) theme else R.style.KeyboardTheme)
+    binding = KeyboardViewBinding.inflate(LayoutInflater.from(themedContext), this)
+
+    binding.keyboardButton0.setOnClickListener(this)
+    binding.keyboardButton1.setOnClickListener(this)
+    binding.keyboardButton2.setOnClickListener(this)
+    binding.keyboardButton3.setOnClickListener(this)
+    binding.keyboardButton4.setOnClickListener(this)
+    binding.keyboardButton5.setOnClickListener(this)
+    binding.keyboardButton6.setOnClickListener(this)
+    binding.keyboardButton7.setOnClickListener(this)
+    binding.keyboardButton8.setOnClickListener(this)
+    binding.keyboardButton9.setOnClickListener(this)
+    binding.keyboardButtonBackspace.apply {
       setOnClickListener(this@KeyboardView)
       setOnLongClickListener {
         deleteAllCharacters()
@@ -108,7 +101,7 @@ constructor(
       }
 
       if (selectionStart == selectionEnd) {
-        selectionStart = Math.max(0, selectionStart - 1)
+        selectionStart = max(0, selectionStart - 1)
       }
 
       if (selectionEnd >= selectionStart) {

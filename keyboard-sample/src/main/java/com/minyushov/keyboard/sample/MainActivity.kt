@@ -3,22 +3,25 @@ package com.minyushov.keyboard.sample
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.openDark
-import kotlinx.android.synthetic.main.activity_main.openLight
+import com.minyushov.keyboard.sample.databinding.MainActivityBinding
 
 class MainActivity : AppCompatActivity() {
+  private lateinit var binding: MainActivityBinding
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
 
-    openDark.setOnClickListener {
+    binding = MainActivityBinding.inflate(layoutInflater)
+    setContentView(binding.root)
+
+    binding.openDark.setOnClickListener {
       startActivity(
         Intent(this, KeyboardActivity::class.java)
           .putExtra(KeyboardActivity.EXTRA_THEME, R.style.Theme_MaterialComponents)
       )
     }
 
-    openLight.setOnClickListener {
+    binding.openLight.setOnClickListener {
       startActivity(
         Intent(this, KeyboardActivity::class.java)
           .putExtra(KeyboardActivity.EXTRA_THEME, R.style.Theme_MaterialComponents_Light)

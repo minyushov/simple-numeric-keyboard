@@ -1,9 +1,9 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 
 android {
   compileSdkVersion androidCompileSdkVersion
+
   defaultConfig {
     applicationId "com.minyushov.keyboard.sample"
     minSdkVersion androidMinSdkVersion
@@ -11,10 +11,15 @@ android {
     versionCode 1
     versionName "1.0"
   }
-}
 
-androidExtensions {
-  experimental = true
+  compileOptions {
+    sourceCompatibility javaVersion
+    targetCompatibility javaVersion
+  }
+
+  buildFeatures {
+    viewBinding true
+  }
 }
 
 dependencies {
